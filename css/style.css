@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css?family=Varela+Round|Vast+Shadow");
+body {
+  background-attachment: fixed;
+  background-image: url(../images/site/background.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  font-family: 'Varela Round', sans-serif;
+  margin: 1%;
+  padding: 0;
+  flex-direction:column;
+}
+ 
+header {
+  background-color: #ffffff;
+  display: block;
+  padding: 20px 0 0 0;
+  margin: 0 auto;
+  max-width: 800px;
+}
+header nav {
+  background-color: #de2226;
+  letter-spacing: 2px;
+  display: flex;
+  width: 100%;
+}
+header nav ul {
+  list-style-type: none;
+  margin-left: -30px;
+}
+header nav ul li {
+  display: inline-block;
+}
+header nav ul a, header nav ul a:visited {
+  color: #ffffff;
+  margin: 0 5px 0 0;
+  padding: 10px 5px 16px;
+  text-decoration: none;
+}
+header nav ul a:hover {
+  background-color: #ffffff;
+  color: #de2226;
+}
+ 
+.active-page {
+  background-color: #ffffff;
+  color: #de2226;
+}
+ 
+.account-link {
+  color: #000000;
+  float: right;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 55px 0 0;
+  text-decoration: none;
+  }
+ 
+a.account-link{
+  vertical-align: bottom; 
+}
+img.account-link {
+  padding-right:100px;
+  width:80px;
+  vertical-align: baseline;
+  
+  }
+
+.account-link::before {
+  content: "";
+  display: block;
+  position: absolute;
+  background-image: url(../images/site/account.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 16px;
+  margin-left: -30px;
+  margin-top: 3px;
+  width: 23px;
+}
+ 
+.brand-pic {
+  padding-left: 10px;
+}
+.brand-pic img {
+  width: 200px;
+}
+
+  
+ 
+main {
+  background-color: #ffffff;
+  margin: 0 auto;
+  max-width: 800px;
+  padding-bottom: 10px;
+}
+ 
+.banner h1 {
+  font-size: 3em;
+  margin: 0 10px;
+}
+.banner .banner-content {
+  background-image: url(../images/site/rocketfeature.jpg);
+  background-size: cover;
+  display: flex;
+  height: auto;
+  justify-content: flex-end;
+  min-height: 355px;
+}
+.banner .banner-content-right {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #990033;
+  display:block;
+  width: 40%;
+}
+.banner .banner-content-right h2 {
+  font-size: 2em;
+  margin: 30px 0 0 10px;
+  padding: 0;
+}
+.banner .banner-content-right ul {
+  font-size: 1.5em;
+  line-height: 1;
+  list-style-type: none;
+  margin: 0 0 25px 10px;
+  padding: 0;
+}
+.banner .banner-content-right .button {
+  margin: 0 0 0 10px;
+}
+ 
+.button {
+  background-color: #F7F093;
+  border: 1px solid #808080;
+  border-radius: 10px;
+  color: #000000;
+  font-size: 25px;
+  font-weight:bold;
+  padding: 10px 45px;
+  text-decoration: none;
+}
+ 
+footer {
+  background-color: #ffffff;
+  font-size: 14px;
+  margin: 0 auto;
+  max-width: 780px;
+  padding: 10px 10px 3px 10px;
+  text-align: center;
+}
+footer hr {
+  background-color: #000000;
+  border: none;
+  height: 3px;
+  margin: 0 0 0 0;
+}
+footer p {
+  margin: 0;
+}
+ 
+.content-row {
+  display: flex;
+  margin-bottom: 10px;
+  min-height: 100px;
+  width: 100%;
+}
+ 
+.two-fifths {
+  margin: 0 10px;
+  width: 40%;
+}
+ 
+.three-fifths {
+  margin: 0 10px;
+  width: 60%;
+}
+ 
+.one-half {
+  
+  margin: 0 10px;
+  width: 50%;
+}
+ 
+.recipe-thumbnail-container {
+  
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+ 
+.recipe-thumbnail-image {
+  background-color: #808080;
+  display: block;
+  width: 100%;
+}
+.recipe-thumbnail-image img {
+  display: block;
+  margin: 5px auto;
+}
+ 
+.recipe-thumbnail-title {
+  
+  text-align: center;
+  }
+ 
+@media screen and (max-width: 690px) {
+  body {
+    padding: 0 10px 50px 10px;
+  }
+body {
+    padding: 0 10px 50px 10px;
+  }
+
+  .banner .banner-content-right {
+    background-color: #ffffff;
+    width: 45%;
+  }
+  .banner .banner-content-right h2 {
+    font-size: 1.5em;
+  }
+  .banner .banner-content-right ul {
+    font-size: 1em;
+  }
+  .banner .banner-content-right .button {
+    font-size: 20px;
+    padding: 5px 15px;
+  }
+ 
+  #featured-recipes {
+    flex-wrap: wrap;
+    order: 2;
+  }
+ 
+  #reviews {
+    flex-wrap: wrap;
+    order: 1;
+  }
+ 
+  .content-row {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+ 
+  .two-fifths {
+    margin: 0 10px;
+    width: 100%;
+  }
+ 
+  .three-fifths {
+    margin: 0 10px;
+    width: 100%;
+  }
+ 
+  .one-half {
+    width: 40%;
+    }
+  
+}
