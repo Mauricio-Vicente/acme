@@ -5,26 +5,25 @@ $pageDescription = "Something wonky happened, sorry about that.";
 ?>
 
 <!DOCTYPE html>
-<html lang="en-US">
-    <head>
-        <meta charset="UTF-8">
-        <title>ACM - Register</title>
-        <meta name="viewport" content="width=device-widtch">
-        <link href="/acme/css/style.css" rel="stylesheet" type="text/css">
-
-    </head>
-   
+<html lang = "en">
+<head>
+    <meta charset = "utf-8">
+    <meta http-equiv = "X-UA-Compatible" content="IE=edge">
+    <meta name = "viewport" content="width=device-width, initial-scale=1">
+    <link href="/acme/css/style.css" rel="stylesheet" >
+    <title>Acme</title>
+ </head>
 <body>
-
-    <?php include_once $_SERVER['DOCUMENT_ROOT']. "/acme/common/header.php"; ?>
-
-
-    <nav>
-      <?php include_once $_SERVER['DOCUMENT_ROOT']."/acme/common/nav.php"; ?>     
-    </nav>
-
-
-<?php include_once $_SERVER['DOCUMENT_ROOT']. "/acme/common/footer.php"; ?>
-
+    <header>
+     <?php require '../common/header.php'; ?>
+        <nav>
+            <?php require '../common/nav.php';?>
+        </nav>
+    </header>
+    <main>
+       <h1>Server Error </h1>
+       <h3>Sorry, the server experienced a problem</h3>
+    </main>
+    <?php require '../common/footer.php' ?>
 </body>
 </html>

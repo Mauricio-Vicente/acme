@@ -34,7 +34,7 @@ switch ($action) {
    case '':
        break;
    default:
-       ;
+       
 }
 
     
