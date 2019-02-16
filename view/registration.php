@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>ACM - Register</title>
-        <meta name="viewport" content="width=device-widtch">
-        <link href="/acme/css/styles.css" rel="stylesheet" type="text/css">
-
-    </head>
-    <body>
-        <div class="content">
-        <?php require '../common/header.php'; ?>
-
+<html lang = "en">
+<head>
+    <meta charset = "utf-8">
+    <meta http-equiv = "X-UA-Compatible" content="IE=edge">
+    <meta name = "viewport" content="width=device-width, initial-scale=1">
+    <link href="/acme/css/style.css" rel="stylesheet" >
+    <title>Acme</title>
+ </head>
+<body>
+    <header>
+     <?php require '../common/header.php'; ?>
+        <nav>
+            <?php echo $navList;?>
+        </nav>
+    </header>
         <main>
         <h1>User Registration</h1>
             <?php
@@ -48,9 +51,9 @@
                     </div>
                 </fieldset>
 
-                <input type="submit" name="submit" value="Register">
+                <input type="submit" name="submit" value="register">
                 <!-- Add the action name - value pair -->
-                <input type="hidden" name="action" value="Register">
+                <input type="hidden" name="action" value="register">
                 
             </form>
         </main>

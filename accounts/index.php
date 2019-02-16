@@ -8,6 +8,8 @@
 require_once '../library/connections.php';
 // Get the acme model for use as needed
 require_once '../model/acme-model.php';
+require_once '../model/accounts-model.php';
+
 
 // Get the array of categories
 $categories = getCategories();
@@ -32,7 +34,8 @@ if ($action == NULL) {
 //    }
 }
 switch ($action) {
-   case '':
+   case 'register':
+       echo 'You are in the register case statement.';
        break;
    default;
        
