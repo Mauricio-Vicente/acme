@@ -11,7 +11,7 @@
     <header>
      <?php require '../common/header.php'; ?>
         <nav>
-            <?php require '../common/nav.php';?>
+            <?php echo $navList;?>
         </nav>
     </header>
     <main>

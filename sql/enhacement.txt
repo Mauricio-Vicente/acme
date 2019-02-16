@@ -1,1 +1,17 @@
+INSERT INTO clients
+(first_name, last_name, email, password, description)
+VALUES ( 'Tony'
+       , 'Stark'
+       , 'tony@starkent.com'
+       , 'Iam1ronM@n'
+       , 'I am the real Ironman' );
 
+UPDATE clients
+SET clientLevel = 3
+WHERE clientId = '1';
+
+
+SELECT invName
+FROM inventory AS i
+INNER JOIN categories AS c ON i.categoryId = c.categoryId
+WHERE c.categoryName LIKE 'Misc';

@@ -14,8 +14,7 @@
         
    
         <nav>
-            
-            <?php include_once $_SERVER['DOCUMENT_ROOT']."/acme/common/nav.php"; ?>     
+            <?php echo $navList; ?>     
         </nav>
     </header>
         <main>
