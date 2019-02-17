@@ -19,6 +19,7 @@
         <style> 
             h1{text-align: center;}
         </style>
+        
     </main>
     <?php require '../common/footer.php' ?>
 </body>
