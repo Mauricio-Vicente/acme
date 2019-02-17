@@ -15,3 +15,6 @@ SELECT invName
 FROM inventory AS i
 INNER JOIN categories AS c ON i.categoryId = c.categoryId
 WHERE c.categoryName LIKE 'Misc';
+
+
+

@@ -18,10 +18,10 @@
         <h1>User Registration</h1>
             <?php
                 if (isset($message)) {
-                echo $message;
+                    echo $message;
                 }
             ?>
-            <form method="post" action="<?php echo $basepath ?>/accounts/index.php" id="registrationform">
+            <form method="post" action="/acme/accounts/index.php">
                 <fieldset>
                     <div>
                         <input class="requiredinvalid" id="clientFirstname" name="clientFirstname"

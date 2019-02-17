@@ -37,6 +37,6 @@ switch ($action) {
    case 'register':
        echo 'You are in the register case statement.';
        break;
-   default;
+   //default;
        
 }
