@@ -1,9 +1,3 @@
-<?php
-$directoryName = 'error';
-$pageTitle = 'Oopsies. Something Wronnky happened!.';
-$pageDescription = "Something wonky happened, sorry about that.";
-?>
-
 <!DOCTYPE html>
 <html lang = "en">
     <head>
@@ -20,10 +14,21 @@ $pageDescription = "Something wonky happened, sorry about that.";
                 <?php echo $navList; ?>
             </nav>
         </header>
+
         <main>
-            <h1>Server Error </h1>
-            <h3>Sorry, the server experienced a problem</h3>
+            <h1>Product Management</h1>
+            <p>Welcome to the product management page. Please choose an option below:</p>
+            <ul>
+                <li><a href = "/acme/products/index.php?action=new-cat" title = "add category">Add a New Category</a></li>
+                <li><a href = "/acme/products/index.php?action=new-prod" title = "add product">Add a New Product</a></li>
+            </ul>
+
         </main>
+
+        <!-- Footer -->
         <?php require '../common/footer.php' ?>
+        <!--Footer-->
+
     </body>
 </html>
+

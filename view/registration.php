@@ -57,6 +57,8 @@
                 
             </form>
         </main>
-    <?php require "../common/footer.php" ?>
+    <!-- Footer -->
+        <?php require '../common/footer.php' ?>
+    <!--Footer-->
     </body>
 </html>
