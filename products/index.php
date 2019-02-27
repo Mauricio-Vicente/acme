@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -27,7 +28,7 @@ foreach ($categories as $category) {
     $catList .= '<option value="' . $category['categoryId'] . '" '. $categoryChoosed .'>' . $category['categoryName'] . '</option>';
    
 }
-    $navList .= '</ul>';
+$navList .= '</ul>';
 //echo $navList;
 //exit;   
     $catList .= '</select>';
@@ -38,7 +39,7 @@ foreach ($categories as $category) {
 //        $action = 'home'; 
 //    }
     }
-    
+   
     switch ($action) {
         //test navList
         // case 'something':
@@ -54,8 +55,6 @@ foreach ($categories as $category) {
             break;
         // SUBMIT THE CATEGORY    
         case 'submit':
-            
-            exit;
             $categoryName = filter_input(INPUT_POST, 'categoryName');
 
             //Check for missing data
@@ -63,23 +62,20 @@ foreach ($categories as $category) {
                 $message = '<p>Please provide the category name.<</p>';
                 include '../view/new-cat.php';
                 
+                exit;
             }
 
             //Send the data to the model
-            $catOutcome = newCat($categoryName);
+            $catOutcome = addCategory($categoryName);
 
             //Check and report the result
             if ($catOutcome === 1) {
                 $message = "<p>Success! Category has been added.</p>";
-                include 'view/new-cat.php';
-                exit;
+                include '../view/new-cat.php';
             } else {
                 $message = "<p><b>Submission has failed<b>. Please try again.</p>";
                 include '../view/new-cat.php';
-                exit;
             }
-             var_dump("ual");
-            exit;
             break;
             
         // Add a new product    
@@ -88,7 +84,7 @@ foreach ($categories as $category) {
             $invName = filter_input(INPUT_POST, 'invName');
             $invDescription = filter_input(INPUT_POST, 'invDescription');
             $invImage = filter_input(INPUT_POST, 'invImage');
-            $invThumbnail = filter_input(INPUT_POST, 'invThubnail');
+            $invThumbnail = filter_input(INPUT_POST, 'invThumbnail');
             $invPrice = filter_input(INPUT_POST, 'invPrice');
             $invStock = filter_input(INPUT_POST, 'invStock');
             $invSize = filter_input(INPUT_POST, 'invSize');
@@ -106,7 +102,7 @@ foreach ($categories as $category) {
             }
            
             // Send the data to the model
-            $prodOutcome = newProd($invName, $invDescription, $invImage, $invThumbnail, $invPrice, $invStock, $invSize, $invWeight, $invLocation, $categoryId, $invVendor, $invStyle);
+            $prodOutcome = addProduct($invName, $invDescription, $invImage, $invThumbnail, $invPrice, $invStock, $invSize, $invWeight, $invLocation, $categoryId, $invVendor, $invStyle);
 
             // Check and report the result
             if ($prodOutcome === 1) {

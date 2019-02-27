@@ -34,24 +34,32 @@ function addProduct($invName, $invDescription, $invImage, $invThumbnail, $invPri
     $db = acmeConnect();
     // The SQL statement
     $sql = 'INSERT into inventory (invName, invDescription, invImage, invThumbnail, invPrice, invStock, invSize, invWeight, invLocation, categoryId, invVendor, invStyle) '
-            . 'VALUES ' . '(:invName, :invDescription, :invImage, :invThumbnail, :invPrice, :invStock, :invSize, :invWeight, :invLocation, :categoryid, :invVendor, :invStyle)';
+            . 'VALUES ' . '(:invName, :invDescription, :invImage, :invThumbnail, :invPrice, :invStock, :invSize, :invWeight, :invLocation, :categoryId, :invVendor, :invStyle)';
     // Creates the prepared statement using the connection
     $stmt = $db->prepare($sql);
+    
     // Below are the statements for making changes to the database
     $stmt->bindValue(':invName', $invName, PDO::PARAM_STR);
     $stmt->bindValue(':invDescription', $invDescription, PDO::PARAM_STR);
     $stmt->bindValue(':invImage', $invImage, PDO::PARAM_STR);
     $stmt->bindValue(':invThumbnail', $invThumbnail, PDO::PARAM_STR);
-    $stmt->bindValue(':invPrice', $invPrice, PDO::PARAM_INT);
-    $stmt->bindValue(':invStock', $invStock, PDO::PARAM_INT);
-    $stmt->bindValue(':invSize', $invSize, PDO::PARAM_INT);
-    $stmt->bindValue(':invWeight', $invWeight, PDO::PARAM_INT);
+    $stmt->bindValue(':invPrice', (int) $invPrice, PDO::PARAM_INT);
+    $stmt->bindValue(':invStock', (int) $invStock, PDO::PARAM_INT);
+    $stmt->bindValue(':invSize', (int) $invSize, PDO::PARAM_INT);
+    $stmt->bindValue(':invWeight',(int) $invWeight, PDO::PARAM_INT);
     $stmt->bindValue(':invLocation', $invLocation, PDO::PARAM_STR);
-    $stmt->bindValue(':categoryId', $categoryId, PDO::PARAM_INT);
+    $stmt->bindValue(':categoryId', (int) $categoryId, PDO::PARAM_INT);
     $stmt->bindValue(':invVendor', $invVendor, PDO::PARAM_STR);
     $stmt->bindValue(':invStyle', $invStyle, PDO::PARAM_STR);
+
     // Runs the prepared statement
-    $stmt->execute();
+    try {
+        $stmt->execute();
+    } catch(Throwable $t) {
+        var_dump($t);exit;
+    }
+
+    
     // Gets the data in database and stores it as an array in the $product variable
     $rowsChanged = $stmt->rowCount();
     // Closes the interaction with the database
