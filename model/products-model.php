@@ -34,7 +34,7 @@ function addProduct($invName, $invDescription, $invImage, $invThumbnail, $invPri
     $db = acmeConnect();
     // The SQL statement
     $sql = 'INSERT into inventory (invName, invDescription, invImage, invThumbnail, invPrice, invStock, invSize, invWeight, invLocation, categoryId, invVendor, invStyle) '
-            . 'VALUES ' . '(:invName, :invDescription, :invImage, :invThumbnail, :invPrice, :invStock, :invSize, :invWeight, :invLocation, :categoryid, :invVendor, :invStyle)';
+            . 'VALUES ' . '(:invName, :invDescription, :invImage, :invThumbnail, :invPrice, :invStock, :invSize, :invWeight, :invLocation, :categoryId, :invVendor, :invStyle)';
     // Creates the prepared statement using the connection
     $stmt = $db->prepare($sql);
     // Below are the statements for making changes to the database
