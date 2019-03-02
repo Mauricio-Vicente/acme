@@ -21,25 +21,25 @@
                     echo $message;
                 }
             ?>
-            <form method="post" action="/acme/accounts/index.php">
+            <form action="/acme/accounts/index.php" method="post" >
                 <fieldset>
                     <div>
                         <input class="requiredinvalid" id="clientFirstname" name="clientFirstname"
                         type="text" required placeholder="First Name" tabindex="1"
-                        title="Enter your First Name" <?php if(isset($clientFirstname)){echo "value='$clientFirstname'";} ?> />
+                        title="Enter your First Name" <?php if(isset($clientFirstname)){echo "value='$clientFirstname'";} ?> required />
                         <label for="clientFirstname">First Name</label>
                     </div>
                     <div>
                         <input class="requiredinvalid" id="clientLastname" name="clientLastname"
                         type="text" required placeholder="Last Name" tabindex="2"
-                        title="Enter your Last Name" <?php if(isset($clientLastname)){echo "value='$clientLastname'";} ?>/>
+                        title="Enter your Last Name" <?php if(isset($clientLastname)){echo "value='$clientLastname'";} ?> required>
                         <label for="clientLastname">Last Name</label>
                     </div>
                     <div>
                         <input class="requiredinvalid" id="clientEmail" name="clientEmail"
-                        type="email" required placeholder="email@address.com" 
+                        type="email" required placeholder="Enter a Valid @email Address" 
                         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" tabindex="3" 
-                        title="E-mail address must be a valid e-mail address format." <?php if(isset($clientEmail)){echo "value='$clientEmail'";} ?>/>
+                        title="E-mail address must be a valid e-mail address format." <?php if(isset($clientEmail)){echo "value='$clientEmail'";} ?> required>
                         <label for="clientEmail">e-Mail Address</label>
                     </div>
                     <div>
