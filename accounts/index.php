@@ -6,6 +6,8 @@
 
 // Get the database connection file
 require_once '../library/connections.php';
+//Get the Functions
+require_once '../library/functions.php';
 // Get the acme model for use as needed
 require_once '../model/acme-model.php';
 // Get the accounts model
@@ -33,20 +35,32 @@ switch ($action) {
 
     case 'register':
 // Filter and store the data
-        $clientFirstname = filter_input(INPUT_POST, 'clientFirstname');
-        $clientLastname = filter_input(INPUT_POST, 'clientLastname');
-        $clientEmail = filter_input(INPUT_POST, 'clientEmail');
-        $clientPassword = filter_input(INPUT_POST, 'clientPassword');
+        $clientFirstname = filter_input(INPUT_POST, 'clientFirstname', FILTER_SANITIZE_STRING);
+        $clientLastname = filter_input(INPUT_POST, 'clientLastname', FILTER_SANITIZE_STRING);
+        $clientEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
+        $checkEmail = checkEmail($clientEmail);
+        $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
+        $checkPassword = checkPassword($clientPassword);
 
 // Check for missing data
-        if (empty($clientFirstname) || empty($clientLastname) || empty($clientEmail) || empty($clientPassword)) {
+        if (empty($clientFirstname) || empty($clientLastname) || empty($checkEmail) || empty($checkPassword)) {
             $message = '<p>Please provide information for all empty form fields.</p>';
             include '../view/registration.php';
             exit;
         }
+        $existingEmail = checkExistingEmail($clientEmail);
+
+// Check for existing email address in the table
+        if ($existingEmail) {
+            $message = '<p class="notice">That email address already exists. Do you want to login instead?</p>';
+            include '../view/login.php';
+            exit;
+        }
+        $hashedPassword = password_hash($checkPassword, PASSWORD_DEFAULT);
+
 
 // Send the data to the model
-        $regOutcome = regClient($clientFirstname, $clientLastname, $clientEmail, $clientPassword);
+        $regOutcome = regClient($clientFirstname, $clientLastname, $clientEmail, $hashedPassword);
 
 // Check and report the result
         if ($regOutcome === 1) {
@@ -60,6 +74,14 @@ switch ($action) {
         }
         break;
     case 'login':
+        $uname = filter_input(INPUT_POST, 'uname', FILTER_SANITIZE_STRING);
+        $pwd = filter_input(INPUT_POST, 'pwd', FILTER_SANITIZE_STRING);
+        $checkpwd = checkPassword($pwd);
+        // Check for missing data
+        if (empty($uname) || empty($pwd)) {
+            $message = '<p>Please provide information for all empty form fields.</p>';
+        }
+
         include_once '../view/login.php';
         break;
     default:
