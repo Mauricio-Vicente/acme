@@ -33,7 +33,7 @@
                     </label>
                 </div>
 
-                <div class="container" style="background-color:#ffffff">
+                <div class="container" style="background-color:#ffff00; color:#fff;">
                     <button type="button" class="cancelbtn">Cancel</button>
                     <span class="psw">Forgot <a href="#">password?</a></span>
                     <span class="psw"> <a href="/acme/accounts/?action=register">REGISTRATION</a></span>

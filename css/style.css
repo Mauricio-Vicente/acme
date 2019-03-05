@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Varela+Round|Vast+Shadow");
+@import url("https://fonts.googleapis.com/css?family=Varela+Round&Vast+Shadow");
 body {
   background-attachment: fixed;
   background-image: url(../images/site/background.jpg);
@@ -271,8 +271,8 @@ input[type=text], input[type=password] {
 
 /* Set a style for all buttons */
 button {
-  background-color: #4CAF50;
-  color: white;
+  background-color: #faff0c;
+  color: #6a0ce8;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
@@ -290,6 +290,7 @@ button:hover {
   width: auto;
   padding: 10px 18px;
   background-color: #f44336;
+  color:#fff;
 }
 
 /* Center the avatar image inside this container */
@@ -307,9 +308,10 @@ img.avatar {
 
 /* Add padding to containers */
 .container {
-  background-color:#e;
+  background-color:#f44141;
   padding: 16px;
   border:12px solid #363636;
+  color:#fff;
 }
 
 /* The "Forgot password" text */
@@ -374,7 +376,7 @@ span.psw {
         width: calc(55%);
     }
     .linkbutton {
-        background-color: #ee3333;
+        background-color: #a90a8c;
         color: #fff;
         font-weight: 700;
         padding: 15px 30px;
@@ -382,7 +384,7 @@ span.psw {
         text-align: center;
     }
     input[type="button"] {
-        background-color: #199e1b;
+        background-color: #a90a8c;
         color: #421aa8;
         font-weight: 700;
         padding: 15px 30px;
@@ -426,6 +428,6 @@ span.psw {
         padding-right: 3px;
     }
     .input-group .input-group-addon .fa {
-        background-color: #ebf2f9;
+        background-color: #a90a8c;
         padding: 5px;
     }

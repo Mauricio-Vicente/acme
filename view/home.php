@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>ACM - Register</title>
-        <meta name="viewport" content="width=device-widtch">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="/acme/css/style.css" rel="stylesheet" type="text/css">
 
     </head>
