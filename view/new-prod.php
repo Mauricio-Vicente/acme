@@ -1,3 +1,9 @@
+<?php
+if ($_SESSION['clientData']['clientLevel'] < 2) {
+ header('location: /acme/');
+ exit;
+}
+?>
 <!DOCTYPE html>
 <html lang = "en">
     <head>
@@ -17,7 +23,7 @@
         <main>
             <div id="addCat">
 
-                <h1>Add Product</h1>
+                 <h1>Add Product</h1>
                 <p>Add a new product below. All fields are required!</p>
 
 
@@ -67,8 +73,8 @@
 
                     <label for="invStyle">Product Style</label><br>
                     <input required type="text" name="invStyle" id="invStyle"><br>
-
-                    <input type="submit" name="addProduct" value="Submit" class="sButton"><br>
+                    
+                    <input type="submit" name="submit" value="Update Product" class="sButton"><br>
                     <input type="hidden" name="action" value="addProduct">
 
                 </form>

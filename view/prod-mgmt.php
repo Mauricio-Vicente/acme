@@ -1,3 +1,14 @@
+<?php
+
+if ($_SESSION['clientData']['clientLevel'] < 2) {
+ header('location: /acme/');
+ exit;
+}
+
+if (isset($_SESSION['message'])){
+    $message = $_SESSION['message'];
+}
+?>
 <!DOCTYPE html>
 <html lang = "en">
     <head>
@@ -22,7 +33,13 @@
                 <li><a href = "/acme/products/index.php?action=new-cat" title = "add category">Add a New Category</a></li>
                 <li><a href = "/acme/products/index.php?action=new-prod" title = "add product">Add a New Product</a></li>
             </ul>
-
+            <?php
+            if (isset($message)) {
+                echo $message;
+            } if (isset($prodList)) {
+                echo $prodList;
+            }
+            ?>
         </main>
 
         <!-- Footer -->
@@ -31,4 +48,4 @@
 
     </body>
 </html>
-
+<?php unset($_SESSION['message']); ?>
