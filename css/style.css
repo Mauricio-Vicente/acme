@@ -1,11 +1,11 @@
-@import url("https://fonts.googleapis.com/css?family=Varela+Round&Vast+Shadow");
+
 body {
   background-attachment: fixed;
   background-image: url(../images/site/background.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  font-family: 'Varela Round', sans-serif;
+  font-family: 'Roboto', sans-serif;
   margin: 1%;
   padding: 0;
   flex-direction:column;
@@ -202,6 +202,48 @@ footer p {
   
   text-align: center;
   }
+  
+#prod-display li{
+        margin-bottom: .5em;
+        border: 1px #ccc solid;
+        list-style-type: none;
+        flex: 1 1 auto;
+    }
+    #prod-display li img{
+        width: auto;
+        height: 200px;
+    }
+
+    #prod-detail{
+    display: flex;
+    flex-wrap: wrap;
+}
+#prod-detail div{
+    padding: .5em;
+    width: 100%;
+}
+#prod-img{
+    text-align: center;
+}
+#prod-img img{
+    height: 250px;
+}
+#prod-detail h2{
+    margin: 0;
+}
+.highlight{
+    color: #de2226;
+}
+#prod-detail h3{
+    margin: 0;
+}
+.cat-head a{
+    text-decoration: none;
+    color: inherit;
+}
+.cat-head a:hover{
+    color: #de2226;
+}  
  
 @media screen and (max-width: 690px) {
   body {
@@ -431,3 +473,92 @@ span.psw {
         background-color: #a90a8c;
         padding: 5px;
     }
+    
+/*--PRODUCT DISPLAY--*/
+ul#prod-display {
+grid-template-columns: repeat(2, 1fr);
+}   
+#pname{
+    border-collapse: collapse;
+    width: 100%;
+}
+#pname td, #pname th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  }
+ #pname tr:nth-child(even){background-color: #f2f2f2;}
+
+#pname tr:hover {background-color: #ddd;}
+
+#pname th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color:#de2226;
+  color: white;
+}
+/*--DETAILS--*/
+div#prod-details img {
+    float: left;
+    margin-bottom: 200px;
+    max-width: 300px;
+}
+
+div#prod-details {
+        margin-bottom: 300px;
+        background-color: rgba(222, 34, 38, .4);
+        
+}
+div#prod-details p {
+    max-width: 800px;
+}
+.cat-head a{
+    text-decoration: none;
+    color: inherit;
+}
+.cat-head a:hover{
+    color: #de2226;
+}
+ 
+
+ #prod-detail{
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+
+    #prod-detail li{
+        flex: 1 0 auto;
+        text-align: center;
+        border: 2px red;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+    
+    /*-- Navigation Main--*/
+  main nav {
+  background-color: #de2226;
+  letter-spacing: 2px;
+  display: flex;
+  width: 100%;
+}
+main nav ul {
+  list-style-type: none;
+  margin-left: -30px;
+}
+main nav ul li {
+  display: inline-block;
+}
+main nav ul a, header nav ul a:visited {
+  color: #ffffff;
+  margin: 0 5px 0 0;
+  padding: 10px 5px 16px;
+  text-decoration: none;
+}
+main nav ul a:hover {
+  background-color: #ffffff;
+  color: #de2226;
+}
+nav {
+   list-style-type: none; 
+   text-decoration: none;
+}    

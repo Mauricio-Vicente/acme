@@ -7,12 +7,12 @@
 session_start();
 // Get the database connection file
 require_once '../library/connections.php';
+//Get the function library file
+require_once '../library/functions.php';
 // Get the acme model for use as needed
 require_once '../model/acme-model.php';
 // Get the products model for use as needed
 require_once '../model/products-model.php';
-//Get the function library file
-require_once '../library/functions.php';
 // Get the array of categories
 $categories = getCategories();
 //var_dump($categories);
@@ -24,7 +24,7 @@ $navList .= "<li><a href='/acme/index.php' title='View the Acme home page'>Home<
 $catList = '<select name="categoryId">';
 $catList .= " <option>Select a category</option>";
 foreach ($categories as $category) {
-    $navList .= "<li><a href='/acme/index.php?action=" . urlencode($category['categoryName']) . "' title='View our $category[categoryName] product line'>$category[categoryName]</a></li>";
+    $navList .= "<li><a href='/acme/products/?action=category&type=" . urlencode($category['categoryName']) . "' title='View our $category[categoryName] product line'>$category[categoryName]</a></li>";
     $categoryChoosed = (isset($categoryId) && $categoryId === $category['categoryId']) ? 'selected' : '';
     $catList .= '<option value="' . $category['categoryId'] . '" ' . $categoryChoosed . '>' . $category['categoryName'] . '</option>';
 }
@@ -194,24 +194,45 @@ switch ($action) {
         break;
     //Case Category Name  
     case 'category':
-        $category = filter_input(INPUT_GET, 'type',FILTER_SANITIZE_STRING);
+        $category = filter_input(INPUT_GET, 'type', FILTER_SANITIZE_STRING);
         $products = getProductsByCategory($category);
-        if(!count($products)){
+        if (!count($products)) {
             $message = "<p class='notice'>Sorry, no $category products could be found.</p>";
         } else {
-            $prodDisplay =  buildProductsDisplay($products);
+            $prodDisplay = buildProductsDisplay($products);
         }
-        
+
         include '../view/category.php';
         break;
-                
+
+    case 'detail':
+//        $invId = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+//        $prodDisplay = getProductInfo();
+//               
+//        include '../view/prod-details.php';
+//        break;
+
+        $productId = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+        $prodDisplay = getProductInfo($productId);
+        if (empty($prodDisplay)) {
+            $message = "<p>Sorry, that product could not be found</p>";
+
+            include '../view/prod-details.php';
+            break;
+        }
+        $category = getCategoryById($prodDisplay['categoryId']);
+        $prodDetail = buildProductsDetails($prodDisplay);
+        include '../view/prod-details.php';
+        break;
+
     //Case product manegment view
     default:
         $products = getProductBasics();
+
         if (count($products) > 0) {
-            $prodList = '<table>';
+            $prodList = '<table id="pname">';
             $prodList .= '<thead>';
-            $prodList .= '<tr><th>Product Name</th><td>&nbsp;</td><td>&nbsp;</td></tr>';
+            $prodList .= '<tr><th>Product Name</th><th>MODIFY</th><th>DELETE</th></tr>';
             $prodList .= '</thead>';
             $prodList .= '<tbody>';
             foreach ($products as $product) {
@@ -223,6 +244,7 @@ switch ($action) {
         } else {
             $message = '<p class="notify">Sorry, no products were returned.</p>';
         }
+
         include '../view/prod-mgmt.php';
         break;
 }

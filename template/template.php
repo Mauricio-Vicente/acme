@@ -21,6 +21,9 @@
         </style>
         
     </main>
-    <?php require '../common/footer.php' ?>
+    <footer>
+      <?php require '../common/footer.php' ?>   
+    </footer>
+   
 </body>
 </html>

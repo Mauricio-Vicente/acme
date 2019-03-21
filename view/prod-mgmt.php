@@ -1,9 +1,9 @@
 <?php
 
-if ($_SESSION['clientData']['clientLevel'] < 2) {
- header('location: /acme/');
- exit;
-}
+//if ($_SESSION['clientData']['clientLevel'] < 2) {
+// header('location: /acme/');
+// exit;
+//}
 
 if (isset($_SESSION['message'])){
     $message = $_SESSION['message'];
@@ -15,7 +15,8 @@ if (isset($_SESSION['message'])){
         <meta charset = "utf-8">
         <meta http-equiv = "X-UA-Compatible" content="IE=edge">
         <meta name = "viewport" content="width=device-width, initial-scale=1">
-        <link href="/acme/css/style.css" rel="stylesheet" >
+        <link href="/acme/css/normalize.css" rel="stylesheet"  type="text/css" media="screen">    
+        <link href="/acme/css/style.css" rel="stylesheet"  type="text/css" media="screen">     
         <title>Acme</title>
     </head>
     <body>
@@ -27,7 +28,7 @@ if (isset($_SESSION['message'])){
         </header>
 
         <main>
-            <h1>Product Management</h1>
+            <h2>Product Management</h2>
             <p>Welcome to the product management page. Please choose an option below:</p>
             <ul>
                 <li><a href = "/acme/products/index.php?action=new-cat" title = "add category">Add a New Category</a></li>
@@ -41,10 +42,11 @@ if (isset($_SESSION['message'])){
             }
             ?>
         </main>
-
-        <!-- Footer -->
-        <?php require '../common/footer.php' ?>
-        <!--Footer-->
+        <footer>
+            <hr>
+          <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/acme/common/footer.php"; ?>       
+        </footer>
+        
 
     </body>
 </html>

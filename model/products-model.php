@@ -126,14 +126,25 @@ $stmt->closeCursor();
 
 return $rowsChanged;
 }
-//Getunction getProductsByCategory($categoryName){
-function getProductsByCategory($categoryName){
-     $db = acmeConnect();
- $sql = 'SELECT * FROM inventory WHERE categoryId IN (SELECT categoryId FROM categories WHERE categoryName = :categoryName)';
- $stmt = $db->prepare($sql);
- $stmt->bindValue(':categoryName', $categoryName, PDO::PARAM_STR);
- $stmt->execute();
- $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
- $stmt->closeCursor();
- return $products;    
+//Get a list of products based on the category 
+function getProductsByCategory($categoryName) {
+    $db = acmeConnect();
+    $sql = 'SELECT * FROM inventory WHERE categoryId IN (SELECT categoryId FROM categories WHERE categoryName = :categoryName)';
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':categoryName', $categoryName, PDO::PARAM_STR);
+    $stmt->execute();
+    $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $stmt->closeCursor();
+    return $products;
+}
+//Get a list of products details based on the product name (uses a SQL subquery)
+function getProductDisplay($invName){
+    $db = acmeConnect();
+    $sql = 'SELECT * FROM inventory WHERE invId IN (SELECT invId FROM inventory WHERE invName = :invName)';
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':invName', $invName, PDO::PARAM_STR);
+    $stmt->execute();
+    $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $stmt->closeCursor();
+    return $products;
 }

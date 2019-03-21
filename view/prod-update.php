@@ -27,7 +27,8 @@ $catList .= '</select>';
         <meta charset = "utf-8">
         <meta http-equiv = "X-UA-Compatible" content="IE=edge">
         <meta name = "viewport" content="width=device-width, initial-scale=1">
-        <link href="/acme/css/style.css" rel="stylesheet" >
+        <link href="/acme/css/normalize.css" rel="stylesheet"  type="text/css" media="screen">    
+        <link href="/acme/css/style.css" rel="stylesheet"  type="text/css" media="screen">   
         <title><?php if(isset($prodInfo['invName'])){ echo "Modify $prodInfo[invName] ";} elseif(isset($invName)) { echo $invName; }?> | Acme, Inc</title>
     </head>
     <body>
@@ -99,10 +100,11 @@ $catList .= '</select>';
             </div>
         </main>
 
-        <!-- Footer -->
-        <?php require '../common/footer.php' ?>
-        <!--Footer-->
-
+       <footer>
+            <hr>
+          <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/acme/common/footer.php"; ?>       
+        </footer>
+        
     </body>
 </html>
 
