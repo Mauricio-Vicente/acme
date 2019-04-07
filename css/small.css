@@ -1,0 +1,509 @@
+/*--Styles to All Scream and First Try To Do Styles--*/
+* { box-sizing: border-box;}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image: url("../images/site/background.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.top-layer { 
+    background-color: #fff;
+}
+
+/*--HEADER--*/
+header {margin: 15px 15px 0 15px;}
+
+img.logo {
+    max-width: 100px;
+    margin: 15px 30px;
+}
+div.folder {
+    margin: 35px 20px 0 0;
+    float: right;
+    font-size: 1rem;
+    text-align: center;
+    display: flex;
+
+}
+div.folder a, span {
+    text-decoration: none;
+    padding-top: 5px;
+}
+
+div.myaccount p{
+    margin: 0 0 0 20px;
+    background-color: #A486AA;
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 5px;    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+img.folder {
+    padding-right: 5px;
+    max-width: 40px;
+    vertical-align: bottom;
+}
+
+/*--NAVIGATION--*/
+nav { 
+    background-color: #d22226; 
+    margin: 0px 15px;
+}
+
+nav button {
+    margin: .2rem 14px;
+    background-color: transparent;
+    border: none;
+    font-size: 1.6rem;
+    color: #fff;
+}
+nav ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0;
+}
+nav ul li a {
+    display: flex;
+    flex-flow: row wrap;
+    padding: .8rem 30px;
+    text-decoration: none;
+    color: #fff;;
+    border: 1px solid rgba(0,0,0,0.3);
+    font-size: 1rem;
+}
+li a.active {
+    background-color: #fff;
+    color: #000;
+}
+nav ul li a:hover {
+    background-color: #fff;
+    color: #000;
+}
+nav ul.hide {display: none;}
+
+/*--MAIN--*/
+h1 {
+    margin: 0px;
+    font-family: 'Kalam', cursive;
+
+    padding: 20px 20px 10px 30px;
+}
+main {
+    margin: 0px 15px;
+    padding-bottom: 75px;
+    border-bottom:  4px solid #000;
+}
+
+/*--BANNER--*/
+section.banner {
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+}
+img.rocket {
+    width: 100%;
+    grid-column: 1 / span 4;
+    grid-row: 1  / 2;
+}
+ul.rocket_ad {
+    grid-column: 3 / span 2;
+    grid-row: 1 / 1;
+    list-style-type: none;
+    color: #990033;
+    font-size:  .9rem;
+    margin-left: 50px;
+    padding: 0 5px 0 0;
+    font-weight: bold;
+}
+ul.rocket_ad h2 { 
+    margin-bottom: 0px;
+}
+
+ul.rocket_ad img {
+    margin-top: 5px;
+    max-width: 155px;
+}
+
+/*--REVIEWS & RECIPES--*/
+h3 { margin: 30px 0px 20px 30px;}
+
+ul.reviews { 
+    margin: 5px 20px; 
+    font-size: 1.2rem;
+}
+div.recipeGallery {
+    display: grid;
+    grid-template-columns: repeat(2, 25%);
+    grid-gap: 25px;
+    text-align: left;
+    margin: 5px 50px 5px 35px;
+
+}
+div.recipeGallery img {
+    width: 150px;
+}
+figure.gallery {
+    margin: 0px;
+
+}
+figure  p  {
+    background-color: #fff;
+    padding-top: 10px;
+}
+figcaption {
+    background-color: #fff;
+    padding: 10px 0 20px 0;
+    font-size: 1.2rem;
+}
+
+/*--FOOTER--*/
+footer {
+    padding: 20px 20px 30px 20px;
+    text-align: center;
+    font-size: 14px;
+    margin: 0px 15px 30px 15px;
+}
+footer p { margin: 0;}
+
+/*--LOGIN/REGISTRATION--*/
+
+form {
+    margin: 0px 30px;
+    max-width: 800px;
+}
+
+label {
+    color: #000000;
+    font-weight:600; 
+}
+
+input {
+    display: block;
+    color: #ADEC3A;
+    font-size:1.2em;
+    width: 100%;
+    padding: 10px 0px 10px 25px;
+    margin: 0px 0px 20px 0px;
+    max-width: 500px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 800;
+    border: solid 1px #e8e8e8;
+    background-image: url(../images/site/ico_validation.png);
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    background-color: #e8e8e8;
+}
+
+div.button {
+    padding: 0px 30px;
+}
+.submitBtn {
+    -webkit-appearance: none; 
+    color: #fff;
+    border: solid 1px #de2226;
+    border-radius: 5px;
+    width: 100%;
+    background: #de2226;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em; 
+    max-width: 500px;
+    padding: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.newBtn {
+    background-color: #808080;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+    cursor: pointer;
+    display: block;
+    border-radius: 5px;
+    max-width: 500px;
+    margin: 15px 0px 0px 0px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.addBtn {
+    background-color: #808080;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+    cursor: pointer;
+    display: block;
+    border-radius: 5px;
+    max-width: 500px;
+    margin: 15px 0px 0px 40px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.adminBtn {
+    background-color:  #de2226;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+    cursor: pointer;
+    display: block;
+    border-radius: 5px;
+    max-width: 500px;
+    margin: 15px 0px 0px 35px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.reviewBtn {
+    background-color:  #de2226;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+    cursor: pointer;
+    display: block;
+    border-radius: 5px;
+    max-width: 600px;
+    margin: 15px 0px 0px 0px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+a  {
+    text-decoration: none;
+}
+div.req_password {
+    padding: 0px 30px 0px 30px;
+    font-size: 1rem;
+    max-width: 575px;
+    color: #de2226;
+    margin-bottom: 10px;
+}
+p.password {
+    font-size: .9rem;
+    padding-left: 5px;
+    margin: 0 0 4px 0;
+    max-width: 500px;
+    color: #808080;
+}
+.result {
+    color: #d22226;
+    margin: 0;
+}
+.result2 {
+    color: #d22226;
+    margin: 0 0 15px 30px;
+}
+.container1 {
+  background-color:rgba(255, 0, 0, 0.8); 
+  color:#fff;  
+}
+/*--INPUT VALIDATION--*/
+input:focus {
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.5) inset;
+}
+input:required {
+    background-position: 4px -61px; 
+}
+input:focus:invalid {
+    background-position: 6px -110px;
+}
+input:required:valid {
+    background-color: #fff;
+    background-position: 4px -161px; 
+}
+/*--TEXTAREA VALIDATION--*/
+textarea:required {
+    background-image: url(../images/site/ico_validation_large.png);
+    background-repeat: no-repeat;
+    background-position: 10px -30px; 
+}
+textarea:required:valid {
+    background-color: #fff;
+
+}
+textarea:focus:invalid {
+    background-position: 6px -220px; 
+}
+
+
+/*--ADD CATEGORY & PRODUCTS PAGES--*/
+fieldset {
+    max-width: 600px;
+    border: #808080  solid 5px;
+    border-radius: 5px;
+    margin-bottom: 40px;
+}
+fieldset legend {
+    background-color: #0000ee;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 25px;
+}
+fieldset:last-child {
+    border: none;
+}
+.drop-down {
+    font-size:1.2em;
+    width: 100%;
+    padding: 3px 3px 3px 5px;
+    margin: 0px 0px 20px 0px;
+    max-width: 500px;
+    font-family: 'Roboto', sans-serif;
+    border: solid 1px #e8e8e8;
+    border-radius: 5px;
+    background-color: #e8e8e8;
+}
+select.drop-down:hover {
+    cursor:pointer;
+}
+textarea {
+    height: 100px;
+    width: 100%;
+    padding: 10px 10px 10px 25px;
+    font-family: 'Roboto', sans-serif;
+}
+span#red {
+    color: red;
+    font-size: 2rem;
+}
+/*--ADMIN PAGE--*/
+.admin-user {
+    font-size: 1.5rem;
+    margin-left: 20px;
+}
+div.admin {
+    margin-top: 40px;
+}
+h3 {
+    font-size: 1.5rem;
+    margin-left: 35px;
+}
+div.admin p {
+    margin-left: 35px;
+    margin-top: 0;
+}
+h4{
+    font-size: .8rem;
+}
+/*--PRODUCT MANAGEMENT TABLE--*/
+table {
+    border: 1px solid black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 20px;
+    margin: 40px 30px 0 40px;
+    font-size: 1.2rem;
+    border-collapse: collapse;
+}
+table thead {
+    text-align: left;
+    font-size: 1.5rem;
+}
+table td, table th {
+    border: 1px solid #ddd;
+    padding: 15px;
+}
+tr:nth-child(even) {
+    background-color: #EAE8FF;
+}
+/*--Product Display--*/
+ul#prod-display {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    list-style-type: none;
+    text-align: center;
+    padding: 0px;
+}
+ul#prod-display li {
+    border: 1px solid #e8e8e8;
+    margin: 40px;
+    padding: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+ul#prod-display span {
+    color: #d22226;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+/*--DETAILS--*/
+section#prod-details img {
+    max-width: 100%;
+    margin: 0 0px 0px 30px;
+    padding-right: 30px;
+    
+}
+section#prod-details ul {
+    list-style-type: none;
+    font-size: 1.2rem;
+    padding-left: 30px;
+}
+section#prod-details span {
+    display: block;
+    color: #d22226;
+    font-weight: 600;
+    font-size: 1.8rem;
+    margin: 30px 0 0 30px;
+}
+section#prod-details p {
+    font-size: 1.2rem;
+    margin: 0 30px;
+}
+/*IMAGE MANAGEMENT*/
+p.reg-message {
+    margin: 0 0 0 30px;
+}
+ul#image-display {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+h2.add-image {
+    margin: 35px 0 0 30px;
+}
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.inputfile + label {
+    font-size:1.2em;
+    cursor: pointer; /* "hand" cursor */
+    display: block;
+    padding: 10px 0px 10px 10px;
+    margin: 0px 0px 10px 0px;
+    max-width: 500px;
+    font-family: 'Roboto', sans-serif;
+    border: solid 1px #e8e8e8;
+    background-image: url(../images/site/ico_validation.png);
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    background-color: #e8e8e8;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: #0000ee;
+    color: white;
+}
+#delconf{
+    margin-left: 2rem;
+}
+/*--THUMBNAIL DISPLAY--*/
+ul.thumbnails {
+    list-style-type: none;
+    display: flex;
+    padding: 0 0 0 20px;
+    flex-wrap: wrap;
+}
+
+ul.thumbnails img {
+    padding: 10px;
+}
+

@@ -1,21 +1,27 @@
+
 <!DOCTYPE html>
 <html lang = "en">
     <head>
         <meta charset = "utf-8">
         <meta http-equiv = "X-UA-Compatible" content="IE=edge">
         <meta name = "viewport" content="width=device-width, initial-scale=1">
-        <link href="/acme/css/normalize.css" rel="stylesheet"  type="text/css" media="screen">    
-        <link href="/acme/css/style.css" rel="stylesheet"  type="text/css" media="screen">  
+        <title>ACM - Login page</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link rel = "stylesheet" type = "text/css" href = "/acme/css/normalize.css"/>
+        <link rel = "stylesheet" type = "text/css" href = "/acme/css/small.css"/>
+        <link rel = "stylesheet" type = "text/css" href ="/acme/css/medium.css"/>
+        <link rel = "stylesheet" type = "text/css" href ="/acme/css/large.css"/>
         <title>Acme</title>
     </head>
     <body>
-        <header>
+        <header class="top-layer">
+            
             <?php require '../common/header.php'; ?>
             <nav>
                 <?php echo $navList; ?>
             </nav>
         </header>
-        <main>
+        <main class="top-layer">
 
             <form method="post" action="/acme/accounts/">
                 <?php
@@ -42,16 +48,20 @@
 
                 </div>
 
-                <div class="container" style="background-color:#ffff00; color:#fff;">
+                <div class="container1">
                     <button type="button" class="cancelbtn">Cancel</button>
                     <span class="psw">Forgot <a href="#">password?</a></span>
                     <span class="psw"> <a href="/acme/accounts/?action=register">REGISTRATION</a></span>
                 </div>
             </form>
         </main>
-       <footer>
+        <footer class="top-layer">
             <hr>
-          <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/acme/common/footer.php"; ?>       
+            <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/acme/common/footer.php"; ?>       
         </footer>
+        <script src="../js/hamburger.js"></script>
+        <script src="../js/mainmenu.js"></script>
+
+
     </body>
 </html>

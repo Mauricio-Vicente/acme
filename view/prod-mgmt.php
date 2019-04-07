@@ -1,11 +1,10 @@
 <?php
-
 //if ($_SESSION['clientData']['clientLevel'] < 2) {
 // header('location: /acme/');
 // exit;
 //}
 
-if (isset($_SESSION['message'])){
+if (isset($_SESSION['message'])) {
     $message = $_SESSION['message'];
 }
 ?>
@@ -15,19 +14,23 @@ if (isset($_SESSION['message'])){
         <meta charset = "utf-8">
         <meta http-equiv = "X-UA-Compatible" content="IE=edge">
         <meta name = "viewport" content="width=device-width, initial-scale=1">
-        <link href="/acme/css/normalize.css" rel="stylesheet"  type="text/css" media="screen">    
-        <link href="/acme/css/style.css" rel="stylesheet"  type="text/css" media="screen">     
         <title>Acme</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link rel = "stylesheet" type = "text/css" href = "/acme/css/normalize.css"/>
+        <link rel = "stylesheet" type = "text/css" href = "/acme/css/small.css"/>
+        <link rel = "stylesheet" type = "text/css" href ="/acme/css/medium.css"/>
+        <link rel = "stylesheet" type = "text/css" href ="/acme/css/large.css"/>
     </head>
     <body>
-        <header>
+        <header class="top-layer">
             <?php require '../common/header.php'; ?>
             <nav>
-                <?php echo $navList; ?>
+                <?php echo $navList; ?>  
             </nav>
+
         </header>
 
-        <main>
+        <main class="top-layer">
             <h2>Product Management</h2>
             <p>Welcome to the product management page. Please choose an option below:</p>
             <ul>
@@ -42,11 +45,13 @@ if (isset($_SESSION['message'])){
             }
             ?>
         </main>
-        <footer>
+        <footer class="top-layer">
             <hr>
-          <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/acme/common/footer.php"; ?>       
+            <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/acme/common/footer.php"; ?>       
         </footer>
-        
+
+        <script src="../js/hamburger.js"></script>
+        <script src="../js/mainmenu.js"></script>
 
     </body>
 </html>

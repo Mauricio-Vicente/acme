@@ -1,5 +1,4 @@
 <?php
-
 function acmeConnect(){
     $server = 'localhost';
     $database = 'acme';
@@ -7,7 +6,6 @@ function acmeConnect(){
     $password = "lZFroH2aGW1mDpZX";
     $dsn = "mysql:host=$server;dbname=$database";
     $options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
-
    try {
     $acmeLink = new PDO($dsn, $user, $password, $options);
    return $acmeLink; 

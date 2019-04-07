@@ -5,16 +5,16 @@
  */
 session_start();
 require_once '../library/connections.php';
+require_once '../library/functions.php';
 require_once '../model/acme-model.php';
 require_once '../model/products-model.php';
 require_once '../model/uploads-model.php';
-require_once '../library/functions.php';
 $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
 if ($action == NULL) {
     $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
 }
-
-$navList = buildNave();
+$categories = getCategories();
+$navList = buildNav($categories);
 /* * ****************************************************
 * Variables for use with the Image Upload Functionality
 * **************************************************** */
@@ -52,6 +52,26 @@ switch ($action) {
         break;
 
     case 'delete':
+        // Get the image name and id
+        $filename = filter_input(INPUT_GET, 'filename', FILTER_SANITIZE_STRING);
+        $imgId = filter_input(INPUT_GET, 'imgId', FILTER_VALIDATE_INT);
+// Build the full path to the image to be deleted
+        $target = $image_dir_path . '/' . $filename;
+// Check that the file exists in that location
+        if (file_exists($target)) {
+            // Deletes the file in the folder
+            $result = unlink($target);
+        }
+// Remove from database only if physical file deleted
+        if ($result) {
+            $remove = deleteImage($imgId);
+        }
+// Set a message based on the delete result
+        if ($remove) {
+            $message = "<p class='result'>$filename was successfully deleted.</p>";
+        } else {
+    $message = "<p class='result'>$filename was NOT deleted.</p>";
+}case 'delete':
         // Get the image name and id
         $filename = filter_input(INPUT_GET, 'filename', FILTER_SANITIZE_STRING);
         $imgId = filter_input(INPUT_GET, 'imgId', FILTER_VALIDATE_INT);

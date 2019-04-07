@@ -12,19 +12,24 @@ if (isset($_SESSION['message'])) {
     <head>
         <meta charset = "utf-8">
         <meta http-equiv = "X-UA-Compatible" content="IE=edge">
-        <meta name = "viewport" content="width=device-width, initial-scale=1">
-        <link href="/acme/css/style.css" rel="stylesheet" >
+        <title>ACM - Image Admin</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link rel = "stylesheet" type = "text/css" href = "/acme/css/normalize.css"/>
+        <link rel = "stylesheet" type = "text/css" href = "/acme/css/small.css"/>
+        <link rel = "stylesheet" type = "text/css" href ="/acme/css/medium.css"/>
+        <link rel = "stylesheet" type = "text/css" href ="/acme/css/large.css"/>
         <title>Acme</title>
     </head>
     <body>
-        <header>
+        <header class="top-layer">
             <?php require '../common/header.php'; ?>
             <nav>
                 <?php echo $navList; ?>
             </nav>
         </header>
-        <main>
-            <h2>Add New Product Image</h2>
+        <main class="top-layer">
+            <h2 id="delconf">Add New Product Image</h2>
             <?php
             if (isset($message)) {
                 echo $message;
@@ -48,11 +53,14 @@ if (isset($_SESSION['message'])) {
             }
             ?>
         </main>
-        
-        <footer>
+
+        <footer class="top-layer">
             <hr>
             <?php require '../common/footer.php' ?>  
         </footer>
+        <script src="../js/hamburger.js"></script>
+        <script src="../js/mainmenu.js"></script>
+
 
     </body>
 </html>

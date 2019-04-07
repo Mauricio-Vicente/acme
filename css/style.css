@@ -1,4 +1,4 @@
-
+/*--Styles to Small Scream--*/
 body {
   background-attachment: fixed;
   background-image: url(../images/site/background.jpg);
@@ -85,8 +85,6 @@ img.account-link {
 .brand-pic img {
   width: 200px;
 }
-
-  
  
 main {
   background-color: #ffffff;
@@ -202,7 +200,7 @@ footer p {
   
   text-align: center;
   }
-  
+
 #prod-display li{
         margin-bottom: .5em;
         border: 1px #ccc solid;
@@ -221,6 +219,11 @@ footer p {
 #prod-detail div{
     padding: .5em;
     width: 100%;
+}
+#prod-detail ul{
+    list-style-type: none;
+    font-size: 1.2rem;
+    padding-left: 30px;
 }
 #prod-img{
     text-align: center;
@@ -244,6 +247,11 @@ footer p {
 .cat-head a:hover{
     color: #de2226;
 }  
+/*--ADMIN PAGE--*/
+.admin-user {
+    font-size: 1.5rem;
+    margin-left: 20px;
+}
  
 @media screen and (max-width: 690px) {
   body {

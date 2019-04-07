@@ -30,6 +30,7 @@ function storeImages($imgPath, $invId, $imgName) {
 // Get Image Information from images table
 function getImages() {
  $db = acmeConnect();
+ 
  $sql = 'SELECT imgId, imgPath, imgName, imgDate, inventory.invId, invName FROM images JOIN inventory ON images.invId = inventory.invId';
  $stmt = $db->prepare($sql);
  $stmt->execute();
@@ -58,4 +59,15 @@ function checkExistingImage($imgName){
  $imageMatch = $stmt->fetch();
  $stmt->closeCursor();
  return $imageMatch;
+}
+// Gets thumbnail information 
+function getThumbnail($invId){
+ $db = acmeConnect();
+ $sql = "SELECT imgId, imgName, imgPath, imgDate FROM images WHERE imgName  LIKE '%-tn%' AND invId = :invId";
+ $stmt = $db->prepare($sql);
+  $stmt->bindValue(':invId', $invId, PDO::PARAM_INT);
+ $stmt->execute();
+ $thumbnail= $stmt->fetchAll(PDO::FETCH_ASSOC);
+ $stmt->closeCursor();
+ return $thumbnail;
 }

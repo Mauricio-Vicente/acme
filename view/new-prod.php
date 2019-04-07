@@ -1,7 +1,7 @@
 <?php
 if ($_SESSION['clientData']['clientLevel'] < 2) {
- header('location: /acme/');
- exit;
+    header('location: /acme/');
+    exit;
 }
 ?>
 <!DOCTYPE html>
@@ -10,21 +10,24 @@ if ($_SESSION['clientData']['clientLevel'] < 2) {
         <meta charset = "utf-8">
         <meta http-equiv = "X-UA-Compatible" content="IE=edge">
         <meta name = "viewport" content="width=device-width, initial-scale=1">
-        <link href="/acme/css/normalize.css" rel="stylesheet"  type="text/css" media="screen">    
-        <link href="/acme/css/style.css" rel="stylesheet"  type="text/css" media="screen">  
         <title>Acme</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link rel = "stylesheet" type = "text/css" href = "/acme/css/normalize.css"/>
+        <link rel = "stylesheet" type = "text/css" href = "/acme/css/small.css"/>
+        <link rel = "stylesheet" type = "text/css" href ="/acme/css/medium.css"/>
+        <link rel = "stylesheet" type = "text/css" href ="/acme/css/large.css"/>
     </head>
     <body>
-        <header>
+        <header class="top-layer">
             <?php require '../common/header.php'; ?>
             <nav>
                 <?php echo $navList; ?>
             </nav>
         </header>
-        <main>
+        <main class="top-layer">
             <div id="addCat">
 
-                 <h1>Add Product</h1>
+                <h1>Add Product</h1>
                 <p>Add a new product below. All fields are required!</p>
 
 
@@ -35,9 +38,9 @@ if ($_SESSION['clientData']['clientLevel'] < 2) {
                         echo $message;
                     }
                     ?>
-                <!--catList-->
+                    <!--catList-->
                     <?php echo $catList; ?><br><br>
-                <!--catList End-->
+                    <!--catList End-->
 
                     <label for="invName">Product Name</label><br>
                     <input required type="text" name="invName" id="invName"><br>
@@ -74,18 +77,20 @@ if ($_SESSION['clientData']['clientLevel'] < 2) {
 
                     <label for="invStyle">Product Style</label><br>
                     <input required type="text" name="invStyle" id="invStyle"><br>
-                    
+
                     <input type="submit" name="submit" value="Update Product" class="sButton"><br>
-                    <input type="hidden" name="action" value="addProduct">
+                    <input type="hidden" name="action" value="submit-new-prod">
 
                 </form>
             </div>
         </main>
 
-       <footer>
+        <footer class="top-layer">
             <hr>
-          <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/acme/common/footer.php"; ?>       
+            <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/acme/common/footer.php"; ?>       
         </footer>
+        <script src="../js/hamburger.js"></script>
+        <script src="../js/mainmenu.js"></script>
 
     </body>
 </html>
