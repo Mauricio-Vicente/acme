@@ -3,13 +3,11 @@
  * REVIEWS MODEL
  */
 //Insert a New Review into database
-function insertReview($reviewId, $reviewText, $reviewDate, $invId, $clientId) {
+function insertReview($reviewText, $invId, $clientId) {
     $db = acmeConnect();
-    $sql = 'INSERT INTO reviews (reviewId, reviewText, reviewDate, invId, clientId) VALUES (:reviewId, :reviewText, :reviewDate, :invId, :clientId)';
+    $sql = 'INSERT INTO reviews (reviewText, reviewDate, invId, clientId) VALUES (:reviewText, now(), :invId, :clientId)';
     $stmt = $db->prepare($sql);
-    $stmt->bindValue(':reviewId', $reviewId, PDO::PARAM_INT);
     $stmt->bindValue(':reviewText', $reviewText, PDO::PARAM_STR);
-    $stmt->bindValue(':reviewDate', $reviewDate, PDO::PARAM_STR);
     $stmt->bindValue(':invId', $invId, PDO::PARAM_INT);
     $stmt->bindValue(':clientId', $clientId, PDO::PARAM_INT);
     $stmt->execute();

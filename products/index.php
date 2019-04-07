@@ -177,16 +177,17 @@ switch ($action) {
         }
         break;
     case 'prod-details':
-        $invId = filter_input(INPUT_GET, 'invId', FILTER_SANITIZE_NUMBER_INT);
-        $reviewId = filter_input(INPUT_POST, 'reviewId', FILTER_SANITIZE_NUMBER_INT);
-        $clientId = filter_input(INPUT_POST, 'clientId', FILTER_SANITIZE_NUMBER_INT);
-        $products = getProductInfo($invId);
-        $thumbnail = getThumbnail($invId);
-        $reviews = getReviews($invId);
-        $reviewArray = getReviewInfo($clientId);
+        $invName = filter_input(INPUT_GET, 'name', FILTER_SANITIZE_STRING);
+        //$reviewId = filter_input(INPUT_POST, 'reviewId', FILTER_SANITIZE_NUMBER_INT);
+        //$clientId = filter_input(INPUT_POST, 'clientId', FILTER_SANITIZE_NUMBER_INT);
+        $products = getProductInfo($invName);
+        
+       // $reviewArray = getReviewInfo($clientId);
         if (!count($products)) {
             $message = "<p class='notice'>Sorry, no $invName could be found.</p>";
         } else {
+            $thumbnail = getThumbnail($products['invId']);
+            $reviews = getReviews($products['invId']);
             $prodDetailDisplay = buildProductsDetails($products);
             $displayThumbnail = buildThumbnailDisplay($thumbnail);
             $allReviews = buildAllReviews($reviews);
@@ -195,7 +196,7 @@ switch ($action) {
         if (isset($_SESSION['loggedin'])) {
             $reviewDisplay = buildReviewDisplay($products);
         }
-        include '../view/prod-detail.php';
+        include '../view/prod-details.php';
         break;
     default:
         $products = getProductBasics();

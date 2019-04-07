@@ -72,11 +72,11 @@ function getProductBasics() {
     return $products;
 }
 // Get product information by invId
-function getProductInfo($invId) {
+function getProductInfo($invName) {
     $db = acmeConnect();
-    $sql = 'SELECT * FROM inventory WHERE invId = :invId';
+    $sql = 'SELECT * FROM inventory WHERE invName = :invName';
     $stmt = $db->prepare($sql);
-    $stmt->bindValue(':invId', $invId, PDO::PARAM_INT);
+    $stmt->bindValue(':invName', $invName, PDO::PARAM_STR);
     $stmt->execute();
     $prodInfo = $stmt->fetch(PDO::FETCH_ASSOC);
     $stmt->closeCursor();

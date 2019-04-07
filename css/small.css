@@ -80,7 +80,9 @@ nav ul li a:hover {
     background-color: #fff;
     color: #000;
 }
-nav ul.hide {display: none;}
+nav ul.hide {
+    display: none;
+}
 
 /*--MAIN--*/
 h1 {

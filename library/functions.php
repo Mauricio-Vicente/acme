@@ -92,14 +92,15 @@ function buildReviewDisplay($productInfo) {
     $rd .= '<img class="user" src="../images/site/user.png" alt ="Image of site user">  ';
     $rd .= strtolower($displayName);
     $rd .= '<label>Product Review</label><textarea  name="reviewText" id="reviewText" required></textarea>';
-    $rd .= '<input type="submit" value="Add Review" class="reviewBtn"></fieldset>';
     $rd .= '<input type="hidden" name="action" value="addReview">';
-    $rd .= '<input type="hidden" name="invId" value="';
-    $rd .= $productInfo['invId'];
+    $rd .= '<input type="hidden" name="invName" value="';
+    $rd .= $productInfo['invName'];
     $rd .= '">';
     $rd .= '<input type="hidden" name="clientId" value="';
     $rd .= $_SESSION['clientData']['clientId'];
-    $rd .= '"></form>';
+    $rd .= '">';
+    $rd .= '<input type="submit" value="Add Review" class="reviewBtn"></fieldset>';
+    $rd .= '</form>';
     return $rd;
 }
 //Build Review display for individual products

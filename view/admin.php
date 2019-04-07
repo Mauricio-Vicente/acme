@@ -82,6 +82,7 @@ if ($_SESSION['clientData']['clientLevel'] > 1) {
 }
 echo '<p><a href="../accounts?action=update">Update Account</a></p>';
 ?>
+            <?php echo $reviewList; ?>
         </main>
 
         <footer class="top-layer">

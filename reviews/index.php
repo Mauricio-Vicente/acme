@@ -12,6 +12,8 @@ require_once'../model/reviews-model.php';
 require_once'../model/products-model.php';
 require_once'../model/uploads-model.php';
 $categories = getCategories();
+$navList = buildNav($categories);
+
 if (isset($_COOKIE['firstname'])) {
     $cookieFirstname = filter_input(INPUT_COOKIE, 'firstname', FILTER_SANITIZE_STRING);
 }
@@ -22,48 +24,33 @@ if ($action == NULL) {
 // Code to deliver the views will be here
 switch ($action) {
     case 'addReview':
-        $reviewId = filter_input(INPUT_POST, 'reviewId', FILTER_SANITIZE_NUMBER_INT);
-        $reviewText = filter_input(INPUT_POST, 'reviewText', FILTER_SANITIZE_STRING);
-        $reviewDate = filter_input(INPUT_POST, 'reviewDate', FILTER_SANITIZE_STRING);
-        $invId = filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_NUMBER_INT);
+        $invName = filter_input(INPUT_POST, 'invName', FILTER_SANITIZE_STRING);
         $clientId = filter_input(INPUT_POST, 'clientId', FILTER_SANITIZE_NUMBER_INT);
-        $products = getProductInfo($invId);
-        $thumbnail = getThumbnail($invId);
-        $reviews = getReviews($invId);
-        $clientInfo = getReviewInfo($clientId);
+        $reviewText = filter_input(INPUT_POST, 'reviewText', FILTER_SANITIZE_STRING);
+        
+        $products = getProductInfo($invName);
+        
         if (!count($products)) {
-            $message = "<p class='notice'>Sorry, no $invName could be found.</p>";
-        } else {
-            $allReviews = buildAllReviews($reviews);
-            $prodDetailDisplay = buildProductsDetails($products);
-            $displayThumbnail = buildThumbnailDisplay($thumbnail);
+            $_SESSION['message'] = "<p class='notice'>Sorry, no $invName could be found.</p>";
+            header('location: /acme/products/?action=prod-details&name='. $invName);
+            exit;
         }
-        if (isset($_SESSION['loggedin'])) {
-            $reviewDisplay = buildReviewDisplay($products);
-        }
+        
         if (empty($reviewText)) {
             $_SESSION['message'] = '<p class="result2">*Please provide a review before submitting.</p>';
-            include '../view/prod-detail.php';
+            header('location: /acme/products/?action=prod-details&name='. $invName);
             exit;
-            $addReview = insertReview($reviewId, $reviewText, $reviewDate, $invId, $clientId);
-            if ($addReview === 1) {
-                $_SESSION['message'] = "<p class='result2'>You successfully added a review.</p>";
-            } else {
-                $message = "<p class='result'>Sorry, but adding the review  was unsucessful.</p>";
-                exit;
-            }
-        }
-        if (!count($products)) {
-            $message = "<p class='notice'>Sorry, no $invName could be found.</p>";
+        } 
+        
+        $addReview = insertReview($reviewText, $products['invId'], $clientId);
+        
+        if ($addReview === 1) {
+            $_SESSION['message'] = "<p class='result2'>You successfully added a review.</p>";
         } else {
-            $allReviews = buildAllReviews($reviews);
-            $prodDetailDisplay = buildProductsDetails($products);
-            $displayThumbnail = buildThumbnailDisplay($thumbnail);
+            $_SESSION['message'] = "<p class='result'>Sorry, but adding the review  was unsucessful.</p>";
         }
-        if (isset($_SESSION['loggedin'])) {
-            $reviewDisplay = buildReviewDisplay($products);
-        }
-        include '../view/prod-detail.php';
+         
+        header('location: /acme/products/?action=prod-details&name='. $invName);
         break;
     
     case 'editReview':
@@ -124,7 +111,7 @@ switch ($action) {
         }
         break;
     default:
-        include '../view/prod-detail.php';
+        include '../view/prod-details.php';
         exit;
         break;
 }
